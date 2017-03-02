@@ -1,0 +1,51 @@
+{ "portfolio" : [
+      {
+        "name" : "nmeDOEN",
+        "type" : "website",
+        "description" : "webdesign (front- en backend voor bestellingen)",
+        "link" : true,
+        "linkurl" : "nmedoen.nl",
+        "owner" : false
+      },
+      {
+        "name" : "Groenhorst",
+        "type" : "film",
+        "description" : "promotie materiaal voor Groenhorst Almere en Groenhorst Lelystad",
+        "link" : false,
+        "video" : "n7hahgiVyN8",
+        "owner" : false
+      },
+      {
+        "name" : "Unicus",
+        "type" : "film",
+        "description" : "huisvideo's, promotiemateriaal voor nieuwe wijk & dorp",
+        "link" : false,
+        "video" : "7LmMPNGOzDA",
+        "owner" : false
+      },
+      {
+        "name" : "rtp",
+        "type" : "website.server",
+        "description" : "ontwikkeling van front en backend bij alle websystemen, livestreaming en VOD",
+        "link" : true,
+        "linkurl" : "radiotalentplace.nl",
+        "owner" : true
+      },
+      {
+        "name" : "infinite",
+        "type" : "radio.website",
+        "description" : "radiodj van diverse programma's en ontwikkeling van webplayer",
+        "link" : true,
+        "linkurl" : "webplayer.infiniteradio.nl",
+        "owner" : false
+      },
+      {
+        "name" : "hsr",
+        "type" : "website.radio",
+        "description" : "radiodj van verschillende programma's en ontwikkeling van alle front en backend",
+        "link" : true,
+        "linkurl" : "hsrdemo.hiddeschultze.nl",
+        "owner" : true
+      }
+  ]
+}
