@@ -5,7 +5,8 @@
         "description" : "webdesign (front- en backend voor bestellingen)",
         "link" : true,
         "linkurl" : "nmedoen.nl",
-        "owner" : false
+        "owner" : false,
+        "tags" : "html/css3, js, php"
       },
       {
         "name" : "Groenhorst",
@@ -13,7 +14,8 @@
         "description" : "promotie materiaal voor Groenhorst Almere en Groenhorst Lelystad",
         "link" : false,
         "video" : "n7hahgiVyN8",
-        "owner" : false
+        "owner" : false,
+        "tags" : "Adobe, Premiere Pro"
       },
       {
         "name" : "Unicus",
@@ -21,7 +23,8 @@
         "description" : "huisvideo's, promotiemateriaal voor nieuwe wijk & dorp",
         "link" : false,
         "video" : "7LmMPNGOzDA",
-        "owner" : false
+        "owner" : false,
+        "tags" : "Adobe, Premiere Pro"
       },
       {
         "name" : "rtp",
@@ -29,7 +32,8 @@
         "description" : "ontwikkeling van front en backend bij alle websystemen, livestreaming en VOD",
         "link" : true,
         "linkurl" : "radiotalentplace.nl",
-        "owner" : true
+        "owner" : true,
+        "tags" : "python, nginx, php, html/css3, js"
       },
       {
         "name" : "infinite",
@@ -37,7 +41,8 @@
         "description" : "radiodj van diverse programma's en ontwikkeling van webplayer",
         "link" : true,
         "linkurl" : "webplayer.infiniteradio.nl",
-        "owner" : false
+        "owner" : false,
+        "tags" : "html/css3, js"
       },
       {
         "name" : "hsr",
@@ -45,7 +50,8 @@
         "description" : "radiodj van verschillende programma's en ontwikkeling van alle front en backend",
         "link" : true,
         "linkurl" : "hsrdemo.hiddeschultze.nl",
-        "owner" : true
+        "owner" : true,
+        "tags" : "Adobe, Audition, nginx, php, html/css3, js"
       }
   ]
 }
