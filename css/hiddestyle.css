@@ -319,8 +319,8 @@ header{
   #hiddespersoonlijkesite .content_title{
     margin-right: 0px!important;
     float: none;
-    margin: 0 auto!important;
-    font-size: 25vw;
+    font-size: 18vw;
+    margin-right: 15px!important;
   }
   #hiddespersoonlijkesite menu .menulinks{
     padding-left: 15px;
@@ -332,9 +332,89 @@ header{
 /*PORTFOLIO CODESTYLING*/
 #portfolio content .port_holder{
   /*position: absolute;*/
+  /*overflow: hidden;*/
   width: 100%;
   padding-top: 60px;
 }
+#portfolio content .port_holder .port_loading{
+  position: absolute;
+  top: 0;
+  left:0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.port_loading_spinner {
+  -webkit-animation: rotator 1.4s linear infinite;
+          animation: rotator 1.4s linear infinite;
+}
+
+@-webkit-keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+}
+
+@keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+}
+.port_loading_path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  stroke: #FFCA28;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite;
+          animation: dash 1.4s ease-in-out infinite;
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+            transform: rotate(450deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+            transform: rotate(450deg);
+  }
+}
+
+
 #portfolio content .port_holder .col{
   width: calc((100% - 41px) / 3);
   height: 100%;
@@ -413,7 +493,7 @@ header{
   height: auto;
 }
 #portfolio content .porto_item_over_title{
-  font-size: 42px;
+  font-size: 35px;
   line-height: 70%;
   transition: .2s;
 }
@@ -441,6 +521,22 @@ header{
 }
 #portfolio content .porto_item_over_desc_link.hover,#portfolio content .porto_item_over_desc_film.hover{
   color: #EAB600;
+}
+#portfolio content .porto_item_over_desc_tags tag{
+  display: inline-block;
+  background-color: #FFCA28;
+  color: #121E24;
+  font-size: 12px;
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-right: 4px;
+  border-radius: 4px;
+  transition: .3s ease;
+}
+#portfolio content .porto_item_over_desc_tags tag:hover{
+  background-color: #EAB600;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 /*film over!*/
@@ -520,6 +616,7 @@ header{
 
 }
 @media only screen and (max-device-width: 660px){
+  #portfolio content .port_holder{overflow: hidden;}
   #portfolio content .col{
     width: 100%!important;
     margin-left: 0px!important;
@@ -589,6 +686,7 @@ header{
 #contact .bottom_row{
   position: relative;
   top: 20px;
+  height: auto;
 }
 #contact .social_block{
   position: relative;
@@ -789,21 +887,30 @@ header{
   }
 }
 @media only screen and (max-device-width: 660px){
+  #hiddespersoonlijkesite #contact{
+    height: auto;
+  }
   #hiddespersoonlijkesite #contact content{
     margin-left: 15px!important;
     margin-right: 15px!important;
     width: calc(100% - 30px)!important;
     text-align: center;
   }
+  #contact .bottom_row{
+    margin-top: 20px;
+    top: 0px!important;
+    margin-bottom: 100px;
+  }
   #contact .interesse{
-    margin-top: 0px;
-    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
   #contact .social_block{
     top: initial!important;
   }
   #contact mail{
-    top: 20px!important;
+    margin-top: 20px!important;
+    top: 0px!important;
     font-size: 8vw;
   }
   #contact mail .social_block_item{
@@ -814,6 +921,7 @@ header{
     display: inline-block;
     width: 95%!important;
     top: 20px!important;
+    float: none!important;
   }
 }
 footer{
