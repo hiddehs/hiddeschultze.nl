@@ -251,19 +251,21 @@ $(".menu_item").click(function () {
 // FETCH/initialize ALL data
 
 var int = 0;
-var maxint = 5;
+var maxint = 6;
 if(smallscreen) maxint = 2;
 var portoitemtemplate = $(".port_item_template").html();
 // console.log(portoitemtemplate);
+
+
 function getPortfolioHidde() {
 
   $.getJSON( "../hiddesdata.json", function( data ) {
-
-    var maxrowitems = Math.floor((data.portfolio).length / 3);
+    console.log("portfolio loader by hidde");
     var thisrowitems = 1;
     var currentrow = 1;
+    var maxrowitems = Math.floor((data.portfolio).length / 3);
 
-    for (i = 0; i <= (data.portfolio).length; i++) {
+    for (i = 0; i <= (data.portfolio).length && i <= maxint; i++) {
       if(thisrowitems < maxrowitems){
         $(".col-" + currentrow).append(portoitemtemplate);
         thisrowitems++;
@@ -275,6 +277,8 @@ function getPortfolioHidde() {
 
     $('#portfolio .port_item').each(function () {
       if(data.portfolio[int] != null && int <= maxint){
+      var portitemell = $(this);
+
       var projectname = data.portfolio[int].name;
       var projecttype = data.portfolio[int].type;
       var projectdescription = data.portfolio[int].description;
@@ -307,15 +311,13 @@ function getPortfolioHidde() {
       }else{
         $(this).find('.porto_item_over_desc_film').hide();
       }
+      var alltags = (data.portfolio[int].tags).split(',');
+      $.each(alltags, function (tagnum) {
+        $(portitemell).find('.porto_item_over_desc_tags').append("<tag>" + alltags[tagnum] + "</tag>");
+      })
       // all descriptions set now applying max height
       }
 
-      // remove mobile extra portoimages
-      if(int > maxint){
-        $(this).hide();
-      }else{
-        $(this).show();
-      }
       int++;
 
     })
@@ -324,22 +326,23 @@ function getPortfolioHidde() {
     var portoimages = $('.porto_item_logo');
     portoimages.on('load', function(){
       loadedImgNum = loadedImgNum + 1;
-      if (loadedImgNum == (maxint + 1)) {
-        var int = 0;
-        $('#portfolio .port_item').each(function () {
+        if (loadedImgNum == maxint) {
+          var int = 0;
+          $('#portfolio .port_item').each(function () {
 
-          if(int <= maxint){
-            var theportheight = $(this).height();
-            $(this).height(theportheight);
-            $(this).find('.porto_item_over').toggleClass('locked');
-          }
-          int++;
+            if(int <= maxint){
+              var theportheight = $(this).height();
+              $(this).height(theportheight);
+              $(this).find('.porto_item_over').toggleClass('locked');
+            }
+            int++;
 
-        })
-        loadedImgNum=0;
-      }
+          })
+          loadedImgNum=0;
+        }
+
     });
-
+    $(".port_loading").fadeOut('fast');
 
   });
 }
@@ -351,26 +354,40 @@ function getPortfolioHidde() {
 
 
 $(".porto_more").unbind('click').click(function () {
+  // remove old portos
+  $(this).fadeOut('fast');
+  $(".port_item").fadeOut('fast', function () {
+    $(this).remove();
+  });
+  $(".port_item_template").html(portoitemtemplate)
   maxint = 5;
   int = 0;
-  loadedImgNum = 0;
+  $(".port_loading").fadeIn('fast');
   getPortfolioHidde();
-  $(this).fadeOut('fast');
 })
 
 $(document).on('mouseover mouseout', ".port_item", function () {
   $(this).toggleClass('hover');
 })
 
-$(document).on('mouseover', ".port_item", function () {
+$(document).on('mouseenter', ".port_item", function () {
+  var hoveredell = $(this);
   var descobj = $(this).find('.porto_item_over_desc');
   var el = $(this).find('.porto_item_over_desc'),
       curHeight = el.height(),
       autoHeight = el.css('height', 'auto').height();
-  el.height(curHeight).animate({height: autoHeight}, 1);
+  el.height(curHeight).animate({height: autoHeight}, 1, function () {
+
+  });
+  if(($(hoveredell).find(".porto_item_over").outerHeight() + autoHeight) > $(hoveredell).height()){
+    var maxminheightportdesc = $(hoveredell).find(".porto_item_over").outerHeight() + autoHeight;
+    console.log(maxminheightportdesc);
+    $(hoveredell).css({'min-height' : maxminheightportdesc + 'px'});
+  }
 })
 $(document).on('mouseleave', ".port_item",function () {
   var descobj = $(this).find('.porto_item_over_desc');
+  $(this).css({"min-height" : "0"})
   $(descobj).animate({
     height: 0
   },1);
