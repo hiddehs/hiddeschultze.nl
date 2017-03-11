@@ -504,7 +504,7 @@ header{
   transition: height .2s ease;
   font-family: 'Open Sans', sans-serif;
   font-weight: lighter;
-  font-size: 18px;
+  font-size: 17px;
   margin-top: 5px;
   overflow: hidden;
   height: 0px;
@@ -522,6 +522,7 @@ header{
 #portfolio content .porto_item_over_desc_link.hover,#portfolio content .porto_item_over_desc_film.hover{
   color: #EAB600;
 }
+#portfolio content .porto_item_over_desc_tags{margin-top: 4px;}
 #portfolio content .porto_item_over_desc_tags tag{
   display: inline-block;
   background-color: #FFCA28;
