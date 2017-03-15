@@ -17,7 +17,14 @@ $(document).ready(function () {
     $("#instabgdetails").click(function () {
       window.open("https://instagram.com/hiddehs");
     })
-
+    $("#instabgdetails").mouseenter(function () {
+      $("#hiddeschultze_block").css({'opacity' : '.5'});
+      $(".background-img .background-overlay").css({'background': 'none'});
+    })
+    $("#instabgdetails").mouseleave(function () {
+      $("#hiddeschultze_block").css({'opacity' : '1'});
+      $(".background-img .background-overlay").css({'background-color': 'rgba(38,50,56, 0.90)'});
+    })
     // loaded margin
     if(smallscreen != true){
       var content_titleheight = $("#portfolio .content_title").height();
@@ -62,7 +69,7 @@ $(document).ready(function () {
 
 // type that shit
 $("#contact typingcan").typed({
-  strings: ["^300(mobiele) website", "^300promotie video","^300aftermovie", "^300logo ontwerp", "^300socialmedia ontwerp", "^300(nieuwe) website","^300(vernieuwde) website"],
+  strings: ["^300(mobiele) website", "^300promotie video","^300aftermovie", "^300logo ontwerp", "^300socialmedia vormgeving", "^300(nieuwe) website","^300(vernieuwde) website","^300promotie gifje", "^300promotie materiaal", "^300gif-animatie", "^300gifje"],
   typespeed: 0,
   backspeed: 0,
   startDelay: 500,
@@ -259,7 +266,7 @@ var portoitemtemplate = $(".port_item_template").html();
 
 function getPortfolioHidde() {
 
-  $.getJSON( "../hiddesdata.json", function( data ) {
+  $.getJSON( "../hiddesdata.json?v=3", function( data ) {
     console.log("portfolio loader by hidde");
     var thisrowitems = 1;
     var currentrow = 1;
